@@ -1,0 +1,164 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Historia Don Pachecho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff0f2;
+      color: #4a0f1f;
+    }
+
+    header {
+      background: linear-gradient(90deg, #9B022F, #BF353B);
+      padding: 50px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.1rem;
+      margin-top: 10px;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .story-section {
+      background: #fff7f8;
+      border-radius: 14px;
+      padding: 25px 20px;
+      box-shadow: 0 6px 18px rgba(155,2,47,0.1);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .story-section:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(155,2,47,0.2);
+    }
+
+    .story-section img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      height: 250px;
+    }
+
+    .story-section h2 {
+      margin: 0 0 10px 0;
+      color: #9B022F;
+      font-size: 1.7rem;
+    }
+
+    .story-section p {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #4a0f1f;
+    }
+
+    footer {
+      background: #9B022F;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: 700;
+      color: #BF353B;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        padding: 0 15px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Nuestra Historia</h1>
+    <p>Descubre cómo nació Don Pachecho y la inspiración detrás de nuestras mermeladas artesanales</p>
+  </header>
+
+  <div class="container">
+
+    <div class="story-section">
+      <img src="CARMEN.jpg" alt="Carmen Paz con mermeladas">
+      <h2>El inicio del emprendimiento</h2>
+      <p>
+        Don Pachecho nació del talento y dedicación de Carmen Paz, hija de Armando Paz, conocido cariñosamente como "Pachecho". 
+        Desde pequeña, Carmen experimentó con recetas familiares y le dio su toque especial a mermeladas de frutilla, guayaba, piña y más, incorporando un ingrediente secreto que hacía únicas sus preparaciones.
+      </p>
+    </div>
+
+    <div class="story-section">
+      <img src="MERMELADAS.HEIC" alt="Venta artesanal en mercados">
+      <h2>Los primeros pasos</h2>
+      <p>
+        Al principio, Carmen vendía sus mermeladas sola, promocionándolas entre amigas y conocidos. Cada frasco llevaba el cariño de su elaboración artesanal, y pronto su sabor comenzó a hacerse conocido en su comunidad.
+      </p>
+    </div>
+
+    <div class="story-section">
+      <img src="pachecho.JPG" alt="Redes sociales Don Pachecho">
+      <h2>Expansión y crecimiento</h2>
+      <p>
+        Este año, decidimos ayudar a Carmen a darle mayor visibilidad a su emprendimiento: creamos sus redes sociales y esta página web. Todo con el objetivo de que más personas puedan disfrutar de sus mermeladas artesanales, manteniendo siempre la esencia y el sabor familiar que las caracteriza.
+      </p>
+    </div>
+
+    <div class="story-section">
+      <img src="armando paz.JPG" alt="Armando Paz">
+      <h2>Un homenaje a su padre</h2>
+      <p>
+        Este proyecto también es un homenaje a Armando Paz, su padre, quien ha sido una figura muy importante en su vida. Carmen dedica cada logro a su memoria, y cada frasco de mermelada lleva consigo la historia y el cariño familiar.
+      </p>
+    </div>
+
+    <div style="text-align:center;">
+      <a href="index.html" class="back">← Volver a la página principal</a>
+    </div>
+
+  </div>
+
+  <footer>
+    © <span id="year"></span> Don Pachecho · Mermeladas Artesanales
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

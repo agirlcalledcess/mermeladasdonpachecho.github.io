@@ -1,0 +1,154 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Recetas Don Pachecho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Tipografía -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap" rel="stylesheet">
+
+  <!-- Estilos -->
+  <style>
+    body {
+      font-family: 'Montserrat', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #fff0f2;
+      color: #4a0f1f;
+    }
+
+    header {
+      background: linear-gradient(90deg, #9B022F, #BF353B);
+      padding: 40px 20px;
+      text-align: center;
+      color: white;
+    }
+
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 20px;
+      display: grid;
+      gap: 40px;
+    }
+
+    .recipe-card {
+      background: #fff7f8;
+      border-radius: 14px;
+      box-shadow: 0 6px 18px rgba(155,2,47,0.1);
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    .recipe-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 30px rgba(155,2,47,0.2);
+    }
+
+    .recipe-card img {
+      width: 100%;
+      border-radius: 12px;
+      object-fit: cover;
+      height: 220px;
+    }
+
+    .recipe-card h2 {
+      margin: 0;
+      font-size: 1.5rem;
+      color: #9B022F;
+    }
+
+    .recipe-card p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #4a0f1f;
+    }
+
+    footer {
+      background: #9B022F;
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+
+    .back {
+      display: inline-block;
+      margin-top: 20px;
+      font-weight: 700;
+      color: #BF353B;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    @media(max-width:768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Recetas Don Pachecho</h1>
+    <p>Inspírate con nuestras deliciosas mermeladas artesanales</p>
+  </header>
+
+  <div class="container">
+
+    <div class="recipe-card">
+      <img src="Tostadas caseras con mermelada y ricotta.jpg" alt="Tostadas caseras con mermelada y ricotta">
+      <h2>Tostadas caseras con mermelada y ricotta</h2>
+      <p>
+        Combina 1 cucharada de mermelada Don Pachecho con ricotta fresca y un chorrito de miel.
+        Sirve sobre pan tostado para un desayuno rápido, delicioso y elegante.
+      </p>
+    </div>
+
+    <div class="recipe-card">
+      <img src="Yogur crocante.webp" alt="Yogur crocante con mermelada">
+      <h2>Yogur crocante</h2>
+      <p>
+        Mezcla 2 cucharadas de mermelada con yogur natural, añade granola o frutos secos al gusto.
+        Ideal como snack saludable o desayuno energético.
+      </p>
+    </div>
+
+    <div class="recipe-card">
+      <img src="Cupcakes con corazón de mermelada.jpg" alt="Cupcakes con corazón de mermelada">
+      <h2>Cupcakes con corazón de mermelada</h2>
+      <p>
+        Rellena los cupcakes con tu mermelada favorita antes de hornear o añade el relleno después.
+        Obtendrás un interior jugoso y un sabor artesanal que encanta a todos.
+      </p>
+    </div>
+
+  </div>
+
+  <div style="text-align:center;">
+    <a href="index.html" class="back">← Volver a la página principal</a>
+  </div>
+
+  <footer>
+    © <span id="year"></span> Don Pachecho · Mermeladas Artesanales
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+
+</body>
+</html>

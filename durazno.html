@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mermelada de Durazno | Don Pachecho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tipografía personalizada -->
+  <style>
+    @font-face {
+      font-family: 'MonsterRadbolt';
+      src: url('fonts/MonsterRadbolt.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'MonsterRadbolt', system-ui, -apple-system, "Segoe UI", Arial;
+      background-color: #fff5ea;
+      margin: 0;
+      padding: 0;
+      color: #4a2f10;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    h1 {
+      font-weight: 900;
+      color: #e07a2f;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: 900;
+      margin: 22px 0;
+      color: #c4641f;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #f28c38, #f7b267);
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(242,140,56,0.28);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(242,140,56,0.4);
+    }
+
+    .extra {
+      margin-top: 26px;
+      font-size: 14px;
+      color: #7a4a22;
+    }
+
+    .back {
+      margin-top: 24px;
+      display: inline-block;
+      font-weight: 700;
+      color: #e07a2f;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div>
+      <img src="durazno.jpg" alt="Mermelada artesanal de durazno">
+    </div>
+
+    <div>
+      <h1>Mermelada Artesanal de Durazno</h1>
+
+      <p>
+        Preparada con duraznos maduros y jugosos, esta mermelada
+        destaca por su sabor dulce, suave y natural. Perfecta para
+        el desayuno o para acompañar postres.
+      </p>
+
+      <div class="price">Bs 35,00</div>
+
+      <ul>
+        <li>Durazno fresco seleccionado</li>
+        <li>Sin conservantes ni colorantes</li>
+        <li>Elaboración artesanal</li>
+        <li>Sabor dulce y afrutado</li>
+      </ul>
+
+      <button onclick="window.location.href='https://wa.me/59176420268?text=Hola%20quiero%20la%20mermelada%20de%20durazno'">
+        Comprar ahora
+      </button>
+
+      <div class="extra">
+        📦 Envíos dentro de Cochabamba<br>
+        💳 Transferencia, Yape o efectivo<br>
+        🍑 Frasco grande · Producción artesanal
+      </div>
+
+      <a href="index.html" class="back">← Volver a la tienda</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

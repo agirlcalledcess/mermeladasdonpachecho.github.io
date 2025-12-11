@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <title>Mermelada de Kiwi | Don Pachecho</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Tipografía personalizada -->
+  <style>
+    @font-face {
+      font-family: 'MonsterRadbolt';
+      src: url('fonts/MonsterRadbolt.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    body {
+      font-family: 'MonsterRadbolt', system-ui, -apple-system, "Segoe UI", Arial;
+      background-color: #f3fff6;
+      margin: 0;
+      padding: 0;
+      color: #133a1f;
+    }
+
+    .container {
+      max-width: 1000px;
+      margin: auto;
+      padding: 40px 20px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+    }
+
+    img {
+      width: 100%;
+      border-radius: 14px;
+    }
+
+    h1 {
+      font-weight: 900;
+      color: #1f7a3d;
+      margin-bottom: 10px;
+    }
+
+    p {
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    .price {
+      font-size: 26px;
+      font-weight: 900;
+      margin: 22px 0;
+      color: #155d2f;
+    }
+
+    ul {
+      padding-left: 20px;
+    }
+
+    ul li {
+      margin-bottom: 6px;
+    }
+
+    button {
+      background: linear-gradient(90deg, #1f7a3d, #4fbf76);
+      color: #ffffff;
+      border: none;
+      padding: 15px 30px;
+      font-size: 16px;
+      font-weight: 800;
+      border-radius: 50px;
+      cursor: pointer;
+      margin-top: 20px;
+      box-shadow: 0 10px 25px rgba(31,122,61,0.28);
+      transition: transform .2s ease, box-shadow .2s ease;
+    }
+
+    button:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(31,122,61,0.4);
+    }
+
+    .extra {
+      margin-top: 26px;
+      font-size: 14px;
+      color: #315c43;
+    }
+
+    .back {
+      margin-top: 24px;
+      display: inline-block;
+      font-weight: 700;
+      color: #1f7a3d;
+      text-decoration: none;
+    }
+
+    .back:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+
+    <div>
+      <img src="kiwi.jpg" alt="Mermelada artesanal de kiwi">
+    </div>
+
+    <div>
+      <h1>Mermelada Artesanal de Kiwi</h1>
+
+      <p>
+        Elaborada con kiwi fresco y natural, esta mermelada tiene un
+        sabor ligeramente ácido y refrescante. Ideal para quienes
+        buscan algo distinto, natural y artesanal.
+      </p>
+
+      <div class="price">Bs 35,00</div>
+
+      <ul>
+        <li>Kiwi fresco seleccionado</li>
+        <li>Sin conservantes ni colorantes</li>
+        <li>Receta artesanal</li>
+        <li>Sabor fresco y cítrico</li>
+      </ul>
+
+      <button onclick="window.location.href='https://wa.me/59176420268?text=Hola%20quiero%20la%20mermelada%20de%20kiwi'">
+        Comprar ahora
+      </button>
+
+      <div class="extra">
+        📦 Envíos dentro de Cochabamba<br>
+        💳 Transferencia, Yape o efectivo<br>
+        🥝 Frasco grande · Producción artesanal
+      </div>
+
+      <a href="index.html" class="back">← Volver a la tienda</a>
+    </div>
+
+  </div>
+
+</body>
+</html>

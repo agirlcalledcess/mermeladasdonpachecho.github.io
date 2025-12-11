@@ -1,0 +1,623 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Don Pachecho — Mermeladas Artesanales</title>
+
+  
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+
+  
+  <style>
+    :root{
+    
+      --dp-very-dark: #1E0D0A; 
+      --dp-deep-red:  #9B022F;
+      --dp-red:       #BF353B;
+      --dp-coral:     #EE666A;
+      --dp-green:     #82BA68;
+      --dp-light:     #FFF7F6; 
+      --max-width: 1200px;
+    }
+
+  
+    html,body{
+      height:100%;
+      font-family: "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color: var(--dp-very-dark);
+      background: linear-gradient(180deg, #ff2058 0%, rgb(255, 198, 198) 40%, #ffb0d2 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+    }
+
+ 
+    .navbar{
+      background: rgba(252, 225, 237, 0.95);
+      backdrop-filter: blur(6px);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+    .brand-logo {
+      display:flex;
+      gap:.6rem;
+      align-items:center;
+      font-weight:700;
+      color:var(--dp-very-dark);
+    }
+    .brand-mark {
+      width:46px;height:46px;border-radius:8px;
+      background: linear-gradient(135deg,var(--dp-deep-red),var(--dp-red));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:800;
+      box-shadow: 0 6px 18px rgba(155,2,47,0.18);
+      font-family: "Montserrat", sans-serif;
+    }
+
+    
+    .hero{
+      padding: 4.5rem 0;
+      background:
+        radial-gradient(circle at 10% 10%, rgba(130,186,104,0.06), transparent 8%),
+        radial-gradient(circle at 90% 80%, rgba(191,53,59,0.04), transparent 12%);
+    }
+    .hero .kicker{
+      color:var(--dp-deep-red);
+      font-weight:700;
+      letter-spacing: .06em;
+      text-transform:uppercase;
+    }
+    .hero h1{
+      font-size: clamp(1.8rem, 3.6vw, 3rem);
+      line-height:1.03;
+      margin-bottom: .6rem;
+      color: var(--dp-very-dark);
+      font-weight:900;
+      letter-spacing: -0.02em;
+    }
+    .hero p.lead{
+      color: #3b2b28;
+      opacity: .9;
+    }
+
+    
+    .product-card{
+      border-radius: 14px;
+      background: linear-gradient(180deg,#ff8787 0%, #fffaf7 100%);
+      box-shadow: 0 8px 24px rgba(30,13,10,0.06);
+      overflow: hidden;
+      transition: transform .28s ease, box-shadow .28s;
+      border: 1px solid rgba(30,13,10,0.04);
+    }
+    .product-card:hover{
+      transform: translateY(-6px) scale(1.01);
+      box-shadow: 0 18px 40px rgba(30,13,10,0.12);
+    }
+    .product-card img{
+      width:100%; height:210px; object-fit:cover;
+    }
+
+    
+    .btn-buy{
+      position: relative;
+      overflow: hidden;
+      border-radius: 50px;
+      background: linear-gradient(90deg,var(--dp-deep-red),var(--dp-red));
+      color: #fff;
+      padding: .65rem 1.1rem;
+      font-weight:700;
+      border: none;
+      box-shadow: 0 8px 20px rgba(155,2,47,0.18);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .btn-buy:hover{ transform: translateY(-3px) scale(1.01); box-shadow: 0 18px 36px rgba(155,2,47,0.2); }
+    .btn-buy:active{ transform: translateY(0); }
+
+    .btn-buy .shine{
+      content:"";
+      position:absolute;
+      left:-60%;
+      top: -40%;
+      width: 60%;
+      height: 200%;
+      transform: rotate(25deg);
+      background: rgba(255,255,255,0.16);
+      transition: left .6s cubic-bezier(.2,.9,.2,1);
+      filter: blur(10px);
+    }
+    .btn-buy:hover .shine{ left:120%; }
+
+    
+    .floating-buy{
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 1200;
+    }
+
+    
+    footer{
+      background: linear-gradient(180deg, rgba(30,13,10,0.03), rgba(30,13,10,0.02));
+      padding: 3.5rem 0;
+      color: #372a27;
+    }
+    .social-btn{
+      display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:10px;border:1px solid rgba(0,0,0,0.04);
+      background: white;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+    }
+
+    
+    .section-title{
+      font-weight:800;
+      color: var(--dp-very-dark);
+      letter-spacing:-0.01em;
+    }
+
+    
+    .accordion-button{
+      font-weight:600;
+      color: var(--dp-very-dark);
+    }
+
+    
+    .muted{
+      color: #54443f;
+    }
+
+    
+    @media(min-width:992px){
+      .hero{
+        padding:6rem 0;
+      }
+      .product-card img { height:260px; }
+    }
+
+    
+    .pill{
+      display:inline-block;padding:.25rem .7rem;border-radius:999px;background:linear-gradient(90deg,var(--dp-coral),var(--dp-green));color:white;font-weight:700;font-size:.75rem;
+      box-shadow: 0 6px 18px rgba(130,186,104,0.08);
+    }
+
+   
+    .form-control:focus{
+      border-color: var(--dp-red);
+      box-shadow: 0 6px 18px rgba(191,53,59,0.12);
+    }
+
+  </style>
+</head>
+<body>
+
+  
+  <nav class="navbar navbar-expand-lg sticky-top shadow-sm">
+    <div class="container">
+      <a class="navbar-brand brand-logo" href="#">
+       <div class="brand-mark">
+       <img src="logo don pachecho.JPG" alt="Logo Don Pachecho" style="width:100%; height:100%; object-fit:contain;">
+       </div>
+
+        <div>
+          <div style="font-size:.95rem">Mermeladas</div>
+          <div style="font-size:.9rem; color: #6a4b47; margin-top:-6px;">Don Pachecho</div>
+        </div>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="mainNav">
+        <ul class="navbar-nav ms-auto align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#inicio">Inicio</a></li>
+          <li class="nav-item"><a class="nav-link" href="#tienda">Tienda</a></li>
+          <li class="nav-item"><a class="nav-link" href="#recetas">Recetas</a></li>
+          <li class="nav-item"><a class="nav-link" href="#sobre">Sobre nosotros</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">FAQs</a></li>
+          <li class="nav-item ms-2">
+            <a class="btn btn-outline-dark" href="#contacto">Contacto</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  
+  <header id="inicio" class="hero">
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="row align-items-center">
+        <div class="col-lg-6">
+          <div class="kicker">Hecho con amor de mamá</div>
+          <h1>Las mermeladas artesanales <span style="color:var(--dp-deep-red)">Don Pachecho</span></h1>
+          <p class="lead">Recetas familiares hechas con frutas frescas. Sin conservantes, con sabores que recuerdan a casa.</p>
+
+          <div class="mt-4 d-flex gap-3">
+            <a href="#tienda" class="btn btn-buy" onclick="redirectTo('#tienda', event)">
+              <span class="shine"></span>
+              Comprar ahora
+            </a>
+            <a href="#recetas" class="btn btn-outline-secondary">Ver recetas</a>
+          </div>
+
+          <div class="mt-4">
+            <div class="muted">Persona objetivo: <strong>Mariana, 35 años, Cochabamba</strong> — busca productos caseros y saludables.</div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="row g-3">
+            <div class="col-6">
+              <div class="product-card">
+                <img src="frutilla.jpg" alt="Mermelada de fresa Don Pachecho">
+                <div class="p-3">
+                  <h5 class="mb-1">Fresa</h5>
+                  <div class="text-muted mb-2">Tarro grande</div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="fw-bold">Bs 35</div>
+                    <a class="btn btn-sm btn-buy"
+   href="mermeladafrutilla.html"
+   onclick="redirectTo('mermeladafrutilla.html', event)">
+   <span class="shine"></span>
+   Comprar
+</a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-6">
+              <div class="product-card">
+                <img src="piña.jpg" alt="Mermelada de piña Don Pachecho">
+                <div class="p-3">
+                  <h5 class="mb-1">Piña</h5>
+                  <div class="text-muted mb-2">Frasco grande</div>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="fw-bold">Bs 35</div>
+                  <a class="btn btn-sm btn-buy"
+   href="piña.html"
+   onclick="redirectTo('piña.html', event)">
+   <span class="shine"></span>
+   Comprar
+</a>
+
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-12 mt-2">
+              <div class="p-3 rounded-3" style="background: linear-gradient(90deg, rgba(191,53,59,0.06), rgba(130,186,104,0.06)); border:1px solid rgba(30,13,10,0.03)">
+                <small class="muted">Envíos a domicilio dentro de Cochabamba. Paga con transferencia, Yape o en efectivo al recibir.</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  
+  <section id="tienda" class="py-5">
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="d-flex justify-content-between align-items-center mb-4">
+        <div>
+          <h2 class="section-title">Tienda — Catálogo</h2>
+          <p class="muted mb-0">Selecciona tu sabor favorito y compra en línea.</p>
+        </div>
+        <div class="text-end">
+          <span class="pill">Artesanal</span>
+        </div>
+      </div>
+
+      <div class="row g-4">
+       
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card h-100 d-flex flex-column">
+            <img src="mora.jpg" alt="Mermelada de mora">
+            <div class="p-3 d-flex flex-column flex-grow-1">
+              <h5>Mermelada de Mora</h5>
+              <p class="muted mb-2" style="font-size:.95rem">Sabor intenso y textura casera. Tarro grande.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="fw-bold">Bs 35</div>
+                <div class="d-flex gap-2">
+                <a class="btn btn-buy btn-sm"
+   href="mora.html"
+   onclick="redirectTo('mora.html', event)">
+   <span class="shine"></span>
+   Comprar
+</a>
+                  <a class="btn btn-buy btn-sm" href="/checkout?product=mora" onclick="redirectTo('/checkout?product=mora', event)"><span class="shine"></span>Comprar</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+ 
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card h-100 d-flex flex-column">
+            <img src="kiwi.jpg" alt="Mermelada de kiwi">
+            <div class="p-3 d-flex flex-column flex-grow-1">
+              <h5>Mermelada de Kiwi</h5>
+              <p class="muted mb-2" style="font-size:.95rem">Receta casera cítrica. Tarro grande.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="fw-bold">Bs 35</div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-outline-secondary btn-sm" href="/product/naranja" onclick="redirectTo('/product/naranja', event)">Detalles</a>
+                <a class="btn btn-buy btn-sm"
+   href="kiwi.html"
+   onclick="redirectTo('kiwi.html', event)">
+   <span class="shine"></span>
+   Comprar
+</a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+ 
+        <div class="col-md-6 col-lg-4">
+          <div class="product-card h-100 d-flex flex-column">
+            <img src="durazno.jpg" alt="Mermelada de durazno">
+            <div class="p-3 d-flex flex-column flex-grow-1">
+              <h5>Mermelada de Durazno</h5>
+              <p class="muted mb-2" style="font-size:.95rem">Textura suave y dulce, perfecta para desayunos.</p>
+              <div class="mt-auto d-flex justify-content-between align-items-center">
+                <div class="fw-bold">Bs 28</div>
+                <div class="d-flex gap-2">
+                  <a class="btn btn-outline-secondary btn-sm" href="/product/durazno" onclick="redirectTo('/product/durazno', event)">Detalles</a>
+                  <a class="btn btn-buy btn-sm"
+   href="durazno.html"
+   onclick="redirectTo('durazno.html', event)">
+   <span class="shine"></span>
+   Comprar
+</a>
+
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <section id="recetas" class="py-5" style="background: linear-gradient(180deg, rgba(255,255,255,0.96), #fff);">
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="row align-items-center g-4">
+        <div class="col-lg-6">
+          <h3 class="section-title">Recetas y Tips</h3>
+          <p class="muted">Ideas fáciles para usar las mermeladas Don Pachecho en desayunos, postres y snacks. Consejos de conservación: mantener en lugar fresco, una vez abierto refrigerar y consumir en 30 días.</p>
+
+          <ul class="list-unstyled mt-3">
+            <li class="mb-2"><strong>• Tostadas caseras con mermelada y ricotta</strong> — combina 1 cda de mermelada con ricotta y miel.</li>
+            <li class="mb-2"><strong>• Yogur crocante</strong> — mezcla 2 cdas en yogur natural, añade granola.</li>
+            <li class="mb-2"><strong>• Cupcakes con corazón de mermelada</strong> — rellena y hornea para sorprender.</li>
+          </ul>
+
+          <a class="btn btn-outline-dark mt-3" href="recetas.html" onclick="redirectTo('recetas.html', event)">Ver todas las recetas</a>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="ratio ratio-16x9 shadow rounded-3 overflow-hidden" style="border:1px solid rgba(30,13,10,0.04);">
+            
+            <iframe src="mermeladas video.mp4" title="Video presentación Don Pachecho" allowfullscreen></iframe>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="sobre" class="py-5">
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h3 class="section-title">Sobre Don Pachecho</h3>
+          <p class="muted">Don Pachecho nace de recetas familiares y la búsqueda de sabores naturales. Nuestro proceso prioriza frutas locales, preparación responsable y envases reciclables. Cada frasco es hecho a mano y etiquetado con cariño.</p>
+          <ul class="list-unstyled">
+            <li><strong>Valores:</strong> Tradición, calidad y cariño en cada frasco.</li>
+            <li><strong>Proceso:</strong> Selección de fruta → cocina lenta → envasado y etiquetado manual.</li>
+            <li><strong>Entrega:</strong> Envío local y pickup disponible.</li>
+          </ul>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="card p-3 product-card">
+            <div class="d-flex gap-3 align-items-center">
+              <img src="preparacion.jpg" alt="Proceso mermeladas" style="width:100px;height:100px;object-fit:cover;border-radius:12px;">
+              <div>
+                <h5 class="mb-1">Hecho con amor de mamá</h5>
+                <p class="muted mb-0" style="font-size:.95rem">Cada lote tiene su historia. Conoce a Mariana y su receta familiar.</p>
+              </div>
+            </div>
+            <div class="mt-3">
+            <a href="historia.html" class="btn btn-outline-secondary" onclick="redirectTo('historia.html', event)">Leer la historia</a>  
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="faq" class="py-5" style="background:linear-gradient(180deg, #FFF, rgba(238,102,106,0.02));">
+    <div class="container" style="max-width: var(--max-width);">
+      <h3 class="section-title mb-3">Preguntas Frecuentes</h3>
+
+      <div class="accordion" id="faqAcc">
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq1">¿Hacen envíos fuera de Cochabamba?</button>
+          </h2>
+          <div id="faq1" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body">Actualmente realizamos envíos dentro de Cochabamba. Para envíos nacionales contáctanos y evaluamos opción de transporte.</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq2">¿Cómo pagar?</button>
+          </h2>
+          <div id="faq2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body">Aceptamos transferencia bancaria, Yape y pago en efectivo al recibir (sujeto a zonas de entrega).</div>
+          </div>
+        </div>
+
+        <div class="accordion-item">
+          <h2 class="accordion-header">
+            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#faq3">Tiempo de entrega</button>
+          </h2>
+          <div id="faq3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+            <div class="accordion-body">En Cochabamba, entre 24 y 72 horas dependiendo de la zona y hora del pedido.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section id="contacto" class="py-5">
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="row g-4">
+        <div class="col-lg-6">
+          <h3 class="section-title">Contacto</h3>
+          <p class="muted">Escríbenos o envíanos un mensaje directo por WhatsApp.</p>
+
+          <form id="contactForm" onsubmit="handleContactSubmit(event)" novalidate>
+            <div class="mb-3">
+              <label class="form-label">Nombre</label>
+              <input class="form-control" id="name" required placeholder="Tu nombre">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input class="form-control" id="email" type="email" required placeholder="correo@ejemplo.com">
+            </div>
+            <div class="mb-3">
+              <label class="form-label">Mensaje</label>
+              <textarea class="form-control" id="message" rows="4" required placeholder="¿En qué te podemos ayudar?"></textarea>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button class="btn btn-buy" type="submit"><span class="shine"></span>Enviar mensaje</button>
+              <a class="btn btn-outline-secondary" href="https://wa.me/59176420268" onclick="redirectTo('https://wa.me/59176420268', event)" target="_blank">WhatsApp</a>
+            </div>
+          </form>
+
+          <div id="contactAlert" class="mt-3" style="display:none;"></div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <h5>Redes y datos</h5>
+          <p class="muted">Síguenos para novedades y recetas.</p>
+
+          <div class="d-flex gap-2 mb-3">
+            <a class="social-btn" href="https://www.instagram.com/mermeladasdonpachecho?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" onclick="redirectTo('https://www.instagram.com/mermeladasdonpachecho?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', event)"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111463.png" alt="Instagram"></a>
+            <a class="social-btn" href="https://www.instagram.com/mermeladasdonpachecho?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" onclick="redirectTo('https://www.instagram.com/mermeladasdonpachecho?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==', event)"><img src="https://cdn-icons-png.flaticon.com/24/733/733547.png" alt="Facebook"></a>
+            <a class="social-btn" href="https://wa.me/59176420268" target="_blank" onclick="redirectTo('https://wa.me/59176420268', event)"><img src="https://cdn-icons-png.flaticon.com/24/2111/2111646.png" alt="Whatsapp"></a>
+          </div>
+
+          <div class="mt-4">
+            <h6 class="mb-1">Dirección</h6>
+            <p class="muted mb-2">Cochabamba — Bolivia</p>
+            <h6 class="mb-1">Teléfono</h6>
+            <p class="muted">+591 76420268</p>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+ 
+  <div class="floating-buy">
+    <a class="btn btn-buy d-flex align-items-center gap-2" href="#tienda" onclick="redirectTo('#tienda', event)">
+      <span class="shine"></span>
+      Comprar
+    </a>
+  </div>
+
+
+  <footer>
+    <div class="container" style="max-width: var(--max-width);">
+      <div class="row">
+        <div class="col-md-6">
+          <strong>Don Pachecho</strong>
+          <p class="muted mb-0">Mermeladas artesanales · Hecho con amor de mamá.</p>
+        </div>
+        <div class="col-md-6 text-md-end">
+          <small class="muted">© <span id="year"></span> Don Pachecho. Todos los derechos reservados.</small>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+ 
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script>
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+
+    function redirectTo(url, event){
+      if(event) event.preventDefault();
+
+      if(url.startsWith('#')){
+        const el = document.querySelector(url);
+        if(el){
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          history.pushState(null, '', url);
+          return;
+        }
+      }
+
+      window.location.href = url;
+    }
+
+
+    function handleContactSubmit(e){
+      e.preventDefault();
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const msg = document.getElementById('message').value.trim();
+
+      if(!name || !email || !msg){
+        showAlert('Por favor completa todos los campos.','danger');
+        return;
+      }
+
+
+      showAlert('Mensaje enviado. Te responderemos pronto. Redireccionando...','success');
+      setTimeout(()=> {
+
+        window.location.href = '/gracias';
+      }, 1100);
+    }
+
+    function showAlert(text, type='info'){
+      const el = document.getElementById('contactAlert');
+      el.style.display = 'block';
+      el.className = 'alert alert-' + type;
+      el.innerHTML = text;
+      setTimeout(()=> { el.style.display = 'none'; }, 4000);
+    }
+
+
+    document.querySelectorAll('.btn-buy').forEach(btn=> {
+      btn.addEventListener('keyup', (e)=> {
+        if(e.key === 'Enter' || e.key === ' '){ btn.click(); }
+      });
+    });
+
+
+  </script>
+
+</body>
+</html>
+
